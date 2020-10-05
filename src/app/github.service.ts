@@ -11,7 +11,7 @@ export class GithubService {
   
 private username:string;
   constructor(private http:HttpClient){
-    this.username ='Ronald.Kiprotich';
+    this.username ='RonaldKiprotich';
   }
   getProfileInformation(){
     return this.http.get(`https://api.github.com/users/${this.username}?access_token=${environment.apiKey}`)
