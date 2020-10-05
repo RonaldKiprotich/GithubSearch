@@ -1,1 +1,11 @@
-<app-form-search></app-form-search>
+<app-form-search (searchPerson)='getUserProfile($event)'></app-form-search>
+
+<div>
+  {{profile.login}}
+  {{profile.login}}
+</div> 
+
+<div *ngFor = 'let repo of repos'>
+  <p>{{repo.name}}</p>
+
+</div>

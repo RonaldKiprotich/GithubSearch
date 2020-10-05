@@ -7,42 +7,31 @@ import { GithubService } from '../github.service';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  
-profile:any;
-repos: any;
-username: string;
 
-constructor(private githubService:GithubService) {
-  /* this.githubService.updateUserProfile(this.username); */
-   /*  this.githubService.getProfileInformation().subscribe(profile => {
-      this.profile = profile; */
-    /* }); */
+  profile: any;
+  repos: any;
+  username: string;
 
-    this.githubService.getProfileInformation().subscribe((response : any) => {
-      this.profile = response;
-      console.log(response)
-    });
-  
-    this.githubService.getProfileRepos().subscribe(repos =>{
-      this.repos = repos;
-    });
+  constructor(private githubService: GithubService) {
+    
+ 
+  }
+  getUserProfile(user) {
 
-}
-  getUserProfile(){
-    this.githubService.updateUserProfile(this.username);
-    this.githubService.getProfileInformation().subscribe(profile => {
+    this.githubService.getProfileInformation(user).subscribe(profile => {
+      
       this.profile = profile;
     });
-  
-    this.githubService.getProfileRepos().subscribe(repos =>{
+
+    this.githubService.getProfileRepos(user).subscribe(repos => {
+      //console.log(repos)
       this.repos = repos;
     });
   }
 
-ngOnInit() {
-  this.githubService.updateUserProfile('RonaldKiprotich');
-  this.githubService.getProfileInformation().subscribe(profile => this.profile = profile);
-  // this.githubService.getProfileRepos().subscribe(repos =>  this.repos = repos);
+  ngOnInit() {
+    this.getUserProfile('RonaldKiprotich');
+    
 
-}
+  }
 }

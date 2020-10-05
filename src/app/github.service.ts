@@ -9,17 +9,15 @@ import { environment } from 'src/environments/environment';
 })
 export class GithubService {
   
-private username:string;
+
   constructor(private http:HttpClient){
-    this.username ='RonaldKiprotich';
+    
   }
-  getProfileInformation(){
-    return this.http.get(`https://api.github.com/users/${this.username}?access_token=${environment.apiKey}`)
+  getProfileInformation(user){
+    return this.http.get('https://api.github.com/users/'+user+ '?access_token='+environment.apiKey)
   }
-  getProfileRepos(){
-    return this.http.get(`https://api.github.com/users/${this.username}/repos?access_token=${environment.apiKey}`)
+  getProfileRepos(user){
+    return this.http.get('https://api.github.com/users/'+user+'/repos'+'?access_token='+environment.apiKey)
   }
-  updateUserProfile(username:string){
-    this.username = username;
-  }
+  
 }
