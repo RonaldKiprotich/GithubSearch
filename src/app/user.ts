@@ -8,6 +8,7 @@ export class User {
         public location :string,
         public email:string,
         public public_repos:string,
+        public public_gists: string,
 
     ){
 
