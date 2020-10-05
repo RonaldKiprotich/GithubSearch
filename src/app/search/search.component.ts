@@ -40,7 +40,7 @@ constructor(private githubService:GithubService) {
   }
 
 ngOnInit() {
-  this.githubService.updateUserProfile('Ronald.Kiprotich');
+  this.githubService.updateUserProfile('RonaldKiprotich');
   this.githubService.getProfileInformation().subscribe(profile => this.profile = profile);
   // this.githubService.getProfileRepos().subscribe(repos =>  this.repos = repos);
 
