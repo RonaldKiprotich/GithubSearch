@@ -9,6 +9,8 @@ export class User {
         public email:string,
         public public_repos:string,
         public public_gists: string,
+        public html_url: string,
+        public company :string,
 
     ){
 
