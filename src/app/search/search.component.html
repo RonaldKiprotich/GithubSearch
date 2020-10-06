@@ -1,34 +1,60 @@
 <app-form-search (searchPerson)='getUserProfile($event)'></app-form-search>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-6">
+      <div class="main-profile">
+        <div *ngIf="profile">
+          <div class="row">
+            <div class="col-sm-5"><br>
+              <img src="{{profile.avatar_url}}" class="Profile_picture" alt="img1">
+            </div>
+          </div>
+        </div>
+        <div>
+          <h2>Name: {{profile.name}}</h2> ({{profile.login}})
+          <h2> <span *ngIf="profile.company">Company: {{profile.company}}</span></h2>
+          <h2>Location: {{profile.location}} </h2>
+        </div>
+        <div class="list">
+          <ul>
+            <li class="list-group-item list-group-item-success" *ngIf="profile.bio">Bio: {{profile.bio}}</li>
 
-<div class="main-profile">
-  <div *ngIf="profile">
-    <div class="row">
-      <div class="col-sm-5"><br>
-        <img src="{{profile.avatar_url}}" class="Profile_picture" alt="img1">
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
-  <div>
-    <h2>Name: {{profile.name}}</h2> ({{profile.login}})
-    <h2> <span *ngIf="profile.company">Company: {{profile.company}}</span></h2>
-    <h2>Location: {{profile.location}} </h2>
-  </div>
-  <div class="list">
-    <ul>
-      <li class="list-group-item list-group-item-success" *ngIf="profile.bio">Bio: {{profile.bio}}</li>
-      
-    </ul>
+    <div class="col-6">
+     
+      <ul>
+        <li> <h1><em>About</em></h1></li>
+        <li> <span class="btn btn-success"> Followers: {{ profile.followers }} </span></li>
+        <li> <span class="btn btn-success"> Following: {{ profile.following }}</span></li>
+        <li> <span class="btn btn-success"> Public-gists: {{ profile.public_gists}}</span></li>
+        <li> <span class="btn btn-success"> Repositories: {{ profile.public_repos }}</span></li>
+      </ul> 
+      <p><a href="{{profile.html_url}}" target="_blank"><button class="btn btn-primary"> View Profile on GitHub</button>
+        </a></p>
+
+    </div>
   </div>
 </div>
 
 
-<p>
-  <span class="btn btn-success"> Followers: {{ profile.followers }} </span> 
 
-  <span class="btn btn-info"> Following: {{ profile.following }}</span>
 
-  <span class="btn btn-primary"> Public-gists:  {{ profile.public_gists}}</span>
+<div class="container-fluid">
+  <h1 class="text-center"><em>Repositories</em></h1>
+  <div class="row">
+    <div class="col-sm-6 pt-3" *ngFor="let repo of repos">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Repo Name: {{repo.name}} </h5>
+          <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> -->
+          <a href="{{repo.html_url}}" class="btn btn-success">View on Github</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <span class="btn btn-danger"> Repositories: {{ profile.public_repos }}</span>
-</p>
+</div>
