@@ -8,6 +8,8 @@ Ronald Kiprotich: https://github.com/ronaldkiprotich
 # Technologies Used
 
 * Angular CLI
+# Figma Design
+* https://www.figma.com/file/Fz68MEzxLi1tOJ04UNNIol/GithubSearch?node-id=0%3A1
 
 # Live Demo
 To view this page, use the link: https://ronaldkiprotich.github.io/GithubSearch/
